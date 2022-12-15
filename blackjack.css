@@ -53,6 +53,13 @@ body {
   cursor: pointer;
 }
 
+.footer {
+  position: fixed;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
 @media screen and (max-width: 767px) {
   #dealer-cards img {
     height: 150px;
