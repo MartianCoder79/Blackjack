@@ -15,7 +15,7 @@ window.onload = function () {
   startGame();
 };
 
-function buildDeck() {
+const buildDeck = () => {
   let values = [
     "A",
     "2",
@@ -43,9 +43,9 @@ function buildDeck() {
   }
 
   // console.log(deck);
-}
+};
 
-function shuffleDeck() {
+const shuffleDeck = () => {
   for (let i = 0; i < deck.length; i++) {
     let j = Math.floor(Math.random() * deck.length); // Math.random gives a number between 0-1, which will be multiplied by the deck which is 52, gives a nr between 0-51.9999. Math.floor gets rid of the decimal.
 
@@ -55,9 +55,9 @@ function shuffleDeck() {
   }
 
   console.log(deck);
-}
+};
 
-function startGame() {
+const startGame = () => {
   hidden = deck.pop();
   dealerSum += getValue(hidden);
   dealerAceCount += checkAce(hidden);
@@ -90,9 +90,9 @@ function startGame() {
   document.getElementById("hit").addEventListener("click", hit);
   document.getElementById("stay").addEventListener("click", stay);
   document.getElementById("stay").addEventListener("click", stay);
-}
+};
 
-function hit() {
+const hit = () => {
   if (!canHit) {
     return;
   }
@@ -106,9 +106,9 @@ function hit() {
   if (reduceAce(playerSum, playerAceCount) > 21) {
     canHit = false;
   }
-}
+};
 
-function stay() {
+const stay = () => {
   dealerSum = reduceAce(dealerSum, dealerAceCount);
   playerSum = reduceAce(playerSum, playerAceCount);
 
@@ -140,13 +140,11 @@ function stay() {
   btn.innerHTML = "New Game";
   document.body.appendChild(btn);
   document.getElementById("new-game").addEventListener("click", newGame);
-}
+};
 
-function newGame() {
-  location.reload();
-}
+const newGame = () => location.reload();
 
-function getValue(card) {
+const getValue = (card) => {
   let data = card.split("-"); // Returns array by split(), populated with the split values and types, "4-C" -> ["4", "C"].
   let value = data[0];
 
@@ -158,19 +156,19 @@ function getValue(card) {
     return 10;
   }
   return parseInt(value); // if it is a nr, returns the value.
-}
+};
 
-function checkAce(card) {
+const checkAce = (card) => {
   if (card[0] === "A") {
     return 1;
   }
   return 0;
-}
+};
 
-function reduceAce(playerSum, playerAceCount) {
+const reduceAce = (playerSum, playerAceCount) => {
   while (playerSum > 21 && playerAceCount > 0) {
     playerSum -= 10;
     playerAceCount -= 1;
   }
   return playerSum;
-}
+};
