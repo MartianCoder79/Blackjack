@@ -137,7 +137,8 @@ const stay = () => {
   document.getElementById("results").innerText = message;
   const btn = document.createElement("button");
   btn.setAttribute("id", "new-game");
-  btn.innerHTML = "New Game";
+  btn.innerText = "New Game";
+  // let buttonsDiv = document.getElementsByClassName("buttons");
   document.body.appendChild(btn);
   document.getElementById("new-game").addEventListener("click", newGame);
 };
