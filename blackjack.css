@@ -1,7 +1,13 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-color: rgb(130, 120, 213);
+  /* background: linear-gradient(#eadedb 5%, #bc70a4 50%, #bfd641 75%); */
+  /* background: rgb(238, 174, 202); */
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
 
 #dealer-cards img {
